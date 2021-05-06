@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TechSupport.Models
@@ -6,6 +7,7 @@ namespace TechSupport.Models
     [Table("tasks", Schema = "public")]
     public class Task
     {
+        [Key]
         [Column("id")]
         public int Id { get; set; }
 
