@@ -1,0 +1,114 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: url("../img/backgrnd.png") no-repeat;
+	background-size: 100%;
+	margin-top: 0%;
+	margin-left: 0%;
+	margin-right: 0%;
+}
+.content h1{
+    font-weight: 700px;
+    font-size: 30px;
+    text-align: center;
+}
+.header{
+    background-color: black;
+    height: 60px;
+
+}
+.header::after {
+  content: "1";
+  display: block;
+  background: url("img/Logov3.png");
+  width: 270px;
+  height: 59px;
+}
+.login {
+display: flex;
+justify-content: center;
+}
+.btn-buttonLogin {
+position: absolute;
+width: 100px;
+height: 50px;
+left: 1610px;
+top: 6.67px;
+border-radius: 10px;
+border: 1px solid #000000;
+font-weight: 500px;
+font-size: 18px;
+}
+.registration{
+display: flex;
+justify-content: center;
+}
+.btn-buttonRegistration{
+position: absolute;
+width: 200px;
+height: 50px;
+left: 1710px;
+top: 6.67px;
+border-radius: 10px;
+border: 1px solid #000000;
+font-weight: 500px;
+font-size: 18px;
+}
+h1 {
+	cursor: help;
+	margin: 0 auto;
+	padding-bottom: 5px;
+display: flex;
+	justify-content: center;
+}
+form {
+	margin: 0 auto;
+	background: rgba(217, 236, 244, 0.82);
+	width: 450px;
+	height: 400px;
+	padding: 20px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border-radius: 10px;
+	margin-top: 150px;
+}
+.group {
+	margin: 10px;
+	padding: 5px;
+}
+label {
+	padding-left: 10px;
+	text-transform: uppercase;
+}
+input {
+	margin-top: 10px;
+	height: 40px;
+	width: 400px;
+	border-radius: 20px/20px;
+	border: none;
+	padding-left: 15px;
+	font-size: 18px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+}
+input:focus {
+	border: 2px solid #6c00ff;
+	transform: translateX(15px);
+	width: 385px;
+}
+button {
+	cursor: pointer;
+	padding: 5px 15px;
+	height: 50px;
+	color: #000;
+	background: #fff;
+	border: none;
+	font-size: 18px;
+	font-size: 15px;
+	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
+	border-radius: 10px;
+	justify-content: center;
+}
+button:hover {
+	opacity: .80;
+	font-weight: bold;
+	transform: scale(1.1);
+}
+
