@@ -1,12 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TechSupport.Data_Access_Layer;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Serialization;
 
 namespace TechSupport
@@ -24,7 +21,7 @@ namespace TechSupport
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CommonContextOptions>(Configuration.GetSection("CommonContextOptions"));
-            services.AddSingleton<CommonContext>();
+            services.AddTransient<CommonContext>();
             services.AddControllersWithViews();
 
             //JSON serializer
@@ -34,14 +31,6 @@ namespace TechSupport
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
             services.AddControllers();
-
-            
-
-            // In production, the React files will be served from this directory
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/build";
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +49,6 @@ namespace TechSupport
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
 
             app.UseRouting();
 
@@ -68,17 +56,12 @@ namespace TechSupport
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
-
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
-                {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                }
+                    pattern: "{controller}/{action=Index}/{id?}", 
+                    defaults:new
+                    {
+                        controller = "View",
+                        action = "Index"
+                    });
             });
         }
     }
