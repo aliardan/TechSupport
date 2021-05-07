@@ -21,11 +21,11 @@ namespace TechSupport.Controllers
             return View("Pages/Index.cshtml");
         }
 
-        [Authorize("test", Roles = "Executor")]
-        public IActionResult userPrivatePage()
+        [Authorize("UserPolicy", Roles = "User")]
+        public IActionResult UserPrivatePage()
         {
             var tasks = _commonContext.Tasks.ToList();
-            return View("Pages/userPrivatePage.cshtml", tasks);
+            return View("Pages/UserPrivatePage.cshtml", tasks);
         }
 
         public IActionResult LogIn()
@@ -54,7 +54,7 @@ namespace TechSupport.Controllers
 
         public IActionResult Registration()
         {
-            return View("Pages/registration.cshtml");
+            return View("Pages/Registration.cshtml");
         }
         public IActionResult CreateTask()
         {
@@ -63,10 +63,6 @@ namespace TechSupport.Controllers
         public IActionResult ExecutorPrivatePage()
         {
             return View("Pages/ExecutorPrivatePage.cshtml");
-        }
-        public IActionResult UserPrivatePage()
-        {
-            return View("Pages/UserPrivatePage.cshtml");
         }
     }
 }
