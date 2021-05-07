@@ -16,13 +16,13 @@ body {
     height: 60px;
 
 }
-.header::after {
-  content: "1";
-  display: block;
-  background: url("img/Logov3.png");
-  width: 270px;
-  height: 59px;
-}
+	.header::after {
+		content: "1";
+		display: block;
+		background: url("../img/Logov3.png");
+		width: 270px;
+		height: 59px;
+	}
 .login {
 display: flex;
 justify-content: center;

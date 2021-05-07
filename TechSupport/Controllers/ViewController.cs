@@ -51,5 +51,22 @@ namespace TechSupport.Controllers
                 return View("Pages/Error.cshtml");
             }
         }
+
+        public IActionResult Registration()
+        {
+            return View("Pages/registration.cshtml");
+        }
+        public IActionResult CreateTask()
+        {
+            return View("Pages/CreateTask.cshtml");
+        }
+        public IActionResult ExecutorPrivatePage()
+        {
+            return View("Pages/ExecutorPrivatePage.cshtml");
+        }
+        public IActionResult UserPrivatePage()
+        {
+            return View("Pages/UserPrivatePage.cshtml");
+        }
     }
 }
