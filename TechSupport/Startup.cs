@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +32,35 @@ namespace TechSupport
                     options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
             services.AddControllers();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/View/LogIn");
+                });
+
+            services.AddAuthorization(options =>
+            {
+
+                options.AddPolicy("AdminPolicy",
+                    authBuilder =>
+                    {
+                        authBuilder.RequireRole("Admin");
+                    });
+
+                options.AddPolicy("ExecutorPolicy",
+                    authBuilder =>
+                    {
+                        authBuilder.RequireRole("Executor");
+                    });
+
+                options.AddPolicy("UserPolicy",
+                    authBuilder =>
+                    {
+                        authBuilder.RequireRole("User");
+                    });
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +81,8 @@ namespace TechSupport
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

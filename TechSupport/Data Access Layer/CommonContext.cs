@@ -23,9 +23,11 @@ namespace TechSupport.Data_Access_Layer
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Models.Task>();
             modelBuilder.Entity<Models.User>();
+            modelBuilder.Entity<Models.Role>();
         }
 
         public DbSet<Models.Task> Tasks { get; set; }
         public DbSet<Models.User> Users { get; set; }
+        public DbSet<Models.User> Roles { get; set; }
     }
 }
