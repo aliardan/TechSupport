@@ -19,23 +19,24 @@
             {
                 @if (User.IsInRole("admin"))
                 {
-                    <a class="btn-buttonLogin" href="/View/userPr">Личный кабинет</a>
+                    <a class="btn-buttonLogin" href="/View/ExecutorPrivatePage">Личный кабинет</a>
                 }
                 @if (User.IsInRole("executor"))
                 {
-                    <a class="btn-buttonLogin" href="/View/userPr">Личный кабинет</a>
+                    <a class="btn-buttonLogin" href="/View/ExecutorPrivatePage">Личный кабинет</a>
                 }
                 @if (User.IsInRole("user"))
                 {
-                    <a class="btn-buttonLogin" href="/View/userPr">Личный кабинет</a>
+                    <a class="btn-buttonLogin" href="/View/UserPrivatePage">Личный кабинет</a>
                 }
             }
             else
             {
                 <a class="btn-buttonLogin" href="/View/LogIn">Войти</a>
-                <a class="btn-buttonRegistration" href="/View/Register">Зарегистрироваться</a>
+                <a class="btn-buttonRegistration" href="/View/Registration">Зарегистрироваться</a>
             }
-</header>
+        </div>
+    </header>
     <div class="content">
         <h1>
             Есть вопросы? Напишите в нашу службу Тех поддержки!
