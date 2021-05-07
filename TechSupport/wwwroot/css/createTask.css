@@ -7,7 +7,7 @@ body{
     margin-right: 0%;
 }
 .content h1{
-    font-weight: 700px;
+    font-weight: 700;
     font-size: 30px;
     text-align: center;
 }
@@ -23,35 +23,21 @@ body{
 		width: 270px;
 		height: 59px;
 	}
-.login {
+.LogOut{
 display: flex;
 justify-content: center;
 }
-.btn-buttonLogin {
-position: absolute;
-width: 100px;
-height: 50px;
-left: 1610px;
-top: 6.67px;
-border-radius: 10px;
-border: 1px solid #000000;
-font-weight: 500px;
-font-size: 18px;
-}
-.registration{
-display: flex;
-justify-content: center;
-}
-.btn-buttonRegistration{
-position: absolute;
-width: 200px;
-height: 50px;
-left: 1710px;
-top: 6.67px;
-border-radius: 10px;
-border: 1px solid #000000;
-font-weight: 500px;
-font-size: 18px;
+.btn-buttonLogOut{
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    left: 1830px;
+    top: 15px;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 5px;
 }
 h1 {
 	cursor: help;
