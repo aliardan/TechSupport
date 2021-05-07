@@ -7,7 +7,7 @@ body{
     margin-right: 0%;
 }
 .content h1{
-    font-weight: 700px;
+    font-weight: 700;
     font-size: 30px;
     text-align: center;
 }
@@ -31,15 +31,14 @@ body{
 .btn-buttonLogin {
     -webkit-appearance: button;
     -moz-appearance: button;
-    appearance: button;
     text-decoration: none;
     color: white;
     position: absolute;
     width: 100px;
     height: 50px;
     left: 1610px;
-    top: 6.67px;
-    font-weight: 500px;
+    top: 15px;
+    font-weight: 500;
     font-size: 18px;
     margin: 5px;
 }
@@ -52,15 +51,14 @@ body{
 .btn-buttonRegistration {
     -webkit-appearance: button;
     -moz-appearance: button;
-    appearance: button;
     text-decoration: none;
     color: white;
     position: absolute;
     width: 200px;
     height: 50px;
     left: 1710px;
-    top: 6.67px;
-    font-weight: 500px;
+    top: 15px;
+    font-weight: 500;
     font-size: 18px;
     margin: 5px;
 }
