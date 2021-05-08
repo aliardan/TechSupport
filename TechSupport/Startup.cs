@@ -25,42 +25,11 @@ namespace TechSupport
             services.AddTransient<CommonContext>();
             services.AddControllersWithViews();
 
-            //JSON serializer
-            services.AddControllersWithViews().AddNewtonsoftJson(options =>
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
-                .AddNewtonsoftJson(options =>
-                    options.SerializerSettings.ContractResolver = new DefaultContractResolver());
-
             services.AddControllers();
-
+            
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/View/LogIn");
-                });
-
-            services.AddAuthorization(options =>
-            {
-
-                options.AddPolicy("AdminPolicy",
-                    authBuilder =>
-                    {
-                        authBuilder.RequireRole("Admin");
-                    });
-
-                options.AddPolicy("ExecutorPolicy",
-                    authBuilder =>
-                    {
-                        authBuilder.RequireRole("Executor");
-                    });
-
-                options.AddPolicy("UserPolicy",
-                    authBuilder =>
-                    {
-                        authBuilder.RequireRole("User");
-                    });
-
-            });
+                .AddCookie(options => options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Login/LogIn"));
+            services.AddAuthorization();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -90,7 +59,7 @@ namespace TechSupport
                     pattern: "{controller}/{action=Index}/{id?}", 
                     defaults:new
                     {
-                        controller = "View",
+                        controller = "Index",
                         action = "Index"
                     });
             });
