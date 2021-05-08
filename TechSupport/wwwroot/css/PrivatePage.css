@@ -6,15 +6,13 @@ body {
 	margin-left: 0%;
 	margin-right: 0%;
 }
-.content h1{
-    font-weight: 700;
-    font-size: 30px;
-    text-align: center;
+.content {
+    position: relative;
+    marin-top: 100px;
 }
 .header{
     background-color: black;
     height: 60px;
-
 }
 .header::after {
   content: "1";
@@ -65,45 +63,37 @@ label {
 	padding-left: 10px;
 	text-transform: uppercase;
 }
-input {
-	margin-top: 10px;
-	height: 40px;
-	width: 400px;
-	border-radius: 20px/20px;
-	border: none;
-	padding-left: 15px;
-	font-size: 18px;
-	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
-}
-input:focus {
-	border: 2px solid #6c00ff;
-	transform: translateX(15px);
-	width: 385px;
-}
-button {
-	cursor: pointer;
-	padding: 5px 15px;
-	height: 50px;
-	color: #000;
-	background: #fff;
-	border: none;
-	font-size: 18px;
-	font-size: 15px;
-	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
-	border-radius: 10px;
-	justify-content: center;
-    margin: 5px;
-}
-button:hover {
-	opacity: .80;
-	font-weight: bold;
-	transform: scale(1.1);
-}
-.list{
+div.tasksList {
     display: flex;
     justify-content: center;
-    margin-top: 200px;
 }
-.table{
-    border-color: #9EB7DC;
-}
+	div.tasksList table {
+		border-color: #9EB7DC;
+		width: 500px;
+		background: white;
+		border: 0;
+        border-collapse: collapse;
+	}
+
+	div.tasksList td {
+		text-align: center;
+		vertical-align: middle;
+    }
+
+	div.tasksList h3 {
+		color: white;
+        margin: 15px;
+    }
+
+	div.tasksList a {
+		margin: 5px;
+		color: grey;
+		text-decoration: none;
+		font-size: 24px;
+	}
+
+		div.tasksList a:hover {
+			color: lightgrey;
+			text-shadow: 0px 0px 5px lightgrey;
+			font-size: 24px;
+		}
