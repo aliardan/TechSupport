@@ -11,10 +11,10 @@ body{
     font-size: 30px;
     text-align: center;
 }
-.header{
+.header {
+    content: "1";
     background-color: black;
     height: 60px;
-
 }
 .header::after {
   content: "1";
@@ -70,3 +70,20 @@ justify-content: center;
 text-decoration: none;
 }
 
+div.menu {
+    float: right;
+    padding: 10px;
+}
+
+    div.menu a {
+        margin: 5px;
+        color: lightgrey;
+        text-decoration: none;
+        font-size: 24px;
+    }
+
+        div.menu a:hover {
+            color: white;
+            text-shadow: 0px 0px 5px white;
+            font-size: 24px;
+        }

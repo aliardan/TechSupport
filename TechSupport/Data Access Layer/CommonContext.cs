@@ -28,6 +28,6 @@ namespace TechSupport.Data_Access_Layer
 
         public DbSet<Models.Task> Tasks { get; set; }
         public DbSet<Models.User> Users { get; set; }
-        public DbSet<Models.User> Roles { get; set; }
+        public DbSet<Models.Role> Roles { get; set; }
     }
 }
