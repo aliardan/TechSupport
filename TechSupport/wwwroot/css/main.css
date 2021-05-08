@@ -23,53 +23,6 @@ body{
   width: 270px;
   height: 59px;
 }
-.login {
-display: flex;
-justify-content: center;
-}
-.btn-buttonLogin {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    text-decoration: none;
-    color: white;
-    position: absolute;
-    width: 100px;
-    height: 50px;
-    left: 1610px;
-    top: 15px;
-    font-weight: 500;
-    font-size: 18px;
-    margin: 5px;
-}
-.registration{
-display: flex;
-justify-content: center;
-}
-.btn-buttonRegistration {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    text-decoration: none;
-    color: white;
-    position: absolute;
-    width: 200px;
-    height: 50px;
-    left: 1710px;
-    top: 15px;
-    font-weight: 500;
-    font-size: 18px;
-    margin: 5px;
-}
-.memberArea{
-position: absolute;
-left: 1420px;
-top: 20.67px;
-font-weight: 500;
-font-size: 18px;
-display: flex;
-justify-content: center;
-text-decoration: none;
-}
-
 div.menu {
     float: right;
     padding: 10px;

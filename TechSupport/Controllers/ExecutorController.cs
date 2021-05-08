@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TechSupport.Data_Access_Layer;
 
@@ -16,7 +17,9 @@ namespace TechSupport.Controllers
         [Authorize(Roles = "Executor, Admin")]
         public IActionResult ExecutorPrivatePage()
         {
-            return View("Pages/ExecutorPrivatePage.cshtml");
+            var executor = HttpContext.User;
+            var tasks = _commonContext.Tasks.ToList();
+            return View("Pages/ExecutorPrivatePage.cshtml", tasks);
         }
     }
 }

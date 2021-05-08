@@ -7,8 +7,7 @@ body {
 	margin-right: 0%;
 }
 .content {
-    position: relative;
-    marin-top: 100px;
+    margin-top: 200px;
 }
 .header{
     background-color: black;
@@ -21,58 +20,17 @@ body {
   width: 270px;
   height: 59px;
 }
-.LogOut {
-    display: flex;
-    justify-content: center;
-}
-
-.btn-buttonLogOut {
-    text-decoration: none;
-    color: white;
-    position: absolute;
-    width: 200px;
-    height: 50px;
-    left: 1830px;
-    top: 15px;
-    font-weight: 500;
-    font-size: 18px;
-    margin: 5px;
-}
-h1 {
-	cursor: help;
-	margin: 0 auto;
-	padding-bottom: 5px;
-    display: flex;
-	justify-content: center;
-}
-form {
-	margin: 0 auto;
-	background: rgba(217, 236, 244, 0.82);
-	width: 450px;
-	height: 400px;
-	padding: 20px;
-	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
-	border-radius: 10px;
-	margin-top: 150px;
-}
-.group {
-	margin: 10px;
-	padding: 5px;
-}
-label {
-	padding-left: 10px;
-	text-transform: uppercase;
-}
 div.tasksList {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 	div.tasksList table {
 		border-color: #9EB7DC;
 		width: 500px;
 		background: white;
 		border: 0;
-        border-collapse: collapse;
+		border-collapse: collapse;
+        border-radius: 10px;
 	}
 
 	div.tasksList td {
@@ -97,3 +55,20 @@ div.tasksList {
 			text-shadow: 0px 0px 5px lightgrey;
 			font-size: 24px;
 		}
+div.menu {
+    float: right;
+    padding: 10px;
+}
+
+div.menu a {
+    margin: 5px;
+    color: lightgrey;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+div.menu a:hover {
+    color: white;
+    text-shadow: 0px 0px 5px white;
+    font-size: 24px;
+}

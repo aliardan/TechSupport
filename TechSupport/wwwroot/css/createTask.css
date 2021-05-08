@@ -107,3 +107,20 @@ textarea{
 	font-size: 18px;
 	box-shadow: 2px 2px 5px rgba(0,0,0,0.82);
 }
+div.menu {
+    float: right;
+    padding: 10px;
+}
+
+div.menu a {
+    margin: 5px;
+    color: lightgrey;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+div.menu a:hover {
+    color: white;
+    text-shadow: 0px 0px 5px white;
+    font-size: 24px;
+}

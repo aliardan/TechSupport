@@ -14,7 +14,7 @@ namespace TechSupport.Controllers
             _commonContext = commonContext;
         }
 
-        [Authorize(Roles = "User, Admin")]
+        [Authorize(Roles = "Customer, Admin")]
         public IActionResult UserPrivatePage()
         {
             var user = HttpContext.User;

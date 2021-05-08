@@ -11,19 +11,25 @@
 </head>
     <body>
         <header class="header">
-            <div class="logo">
-
+            <div class="menu">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (User.IsInRole("Executor") || User.IsInRole("Admin"))
+                    {
+                        <a href="/Executor/ExecutorPrivatePage">Tasks To Do</a>
+                    }
+                    @if (User.IsInRole("Customer") || User.IsInRole("Admin"))
+                    {
+                        <a href="/User/UserPrivatePage">Created Tasks</a>
+                    }
+                }
+                else
+                {
+                    <a href="/Login/LogIn">Войти</a>
+                    <a href="/Registration/Registration">Зарегистрироваться</a>
+                }
             </div>
-			<div class="menu">
-                <a class="btn-buttonLogin" href="/View/LogIn">Войти</a>
-                <a class="btn-buttonRegistration" href="/View/Registration">Зарегистрироваться</a>
-            </div>
-			</header>
-        <div class="content">
-            <h1>
-                
-            </h1>
-        </div>
+		</header>
 		<form method="post">
 		<h1 title="Форма входа">Регистрация</h1>
 		<div class="group">
