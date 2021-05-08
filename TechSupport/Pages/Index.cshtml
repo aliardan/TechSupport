@@ -18,7 +18,7 @@
                 {
                     <a href="/Executor/ExecutorPrivatePage">Tasks To Do</a>
                 }
-                @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                @if (User.IsInRole("Customer") || User.IsInRole("Admin"))
                 {
                     <a href="/User/UserPrivatePage">Created Tasks</a>
                 }

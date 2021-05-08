@@ -1,68 +1,79 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Technical Support</title>
-        <link rel="stylesheet" type="text/css " href="~/css/PrivatePage.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header class="header">
-            <div class="logo">
-
-            </div>
-            <div class="menu">
-                <a class="btn-buttonLogOut" href="/View/Index">Выйти</a>
-            </div>
-			</header>
-        <div class="content">
-        l   <div class="list">
-                <table cellspacing="0", border="1" width="500px" bgcolor = white>
-                    <tr bgcolor="#1E2734">
-                        <td width="40%">
-                            <p style="color: white; margin-left: 10px;">Список задач</p>
-                        </td>
-                    </tr>
-                    <tr style="margin-left: 10px; height: 75px;">
-                        <td colspan="3">
-                            <button class="btn-buttonOpenTask1" type="button" style="height: 55px; margin-left: 5px">Задача 1</button>
-                       
-                            В работе
-                            Приоритет неотложенный
-                        </td>
-                    </tr>
-                    <tr style="margin-left: 10px; height: 75px;">
-                        <td colspan="3">
-                            <button class="btn-buttonOpenTask2" type="button" style="height: 55px; margin-left: 5px">Задача 2</button>
-                        
-                            Решена
-                        
-                            Приоритет высокий
-                        </td>
-                    </tr>
-					<tr style="margin-left: 10px; height: 75px;">
-                        <td colspan="3">
-                            <button class="btn-buttonOpenTask3" type="button" style="height: 55px; margin-left: 5px">Задача 3</button>
-                        
-                            Решена
-                        
-                            Приоритет нормальный
-                        </td>
-                    </tr>
-					<tr style="margin-left: 10px; height: 75px;">
-                        <td colspan="3">
-                            <button class="btn-buttonOpenTask4" type="button" style="height: 55px; margin-left: 5px">Задача 4</button>
-                        
-                            Создана
-                        
-                            Приоритет низкий
-                        </td>
-                    </tr>
-                </table>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Support</title>
+    <link rel="stylesheet" type="text/css " href="~/css/PrivatePage.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="menu">
+            <a href="/Index/Index">Logout</a>
         </div>
-    </body>
+    </header>
+    <div class="content">
+        <div class="tasksList">
+            <table>
+                <tr style="background-color: #1E2734">
+                    <td>
+                        <h3>Tasks List</h3>
+                    </td>
+                    <td>
+                        <h3>Status</h3>
+                    </td>
+                    <td>
+                        <h3>Priority</h3>
+                    </td>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr style="margin-left: 10px; height: 75px;">
+                        <td>
+                            <a href="/Index/Index"> @item.Name</a>
+                        </td>
+                        <td>
+                            @{
+                                switch (item.Status)
+                                {
+                                    case 0:
+                                        <text>Создана</text>
+                                        break;
+                                    case 1:
+                                        <text>В работе</text>
+                                        break;
+                                    case 2:
+                                        <text>Решена</text>
+                                        break;
+                                }
+                            }
+                        </td>
+                        <td>
+                            @{
+                                switch (item.Priority)
+                                {
+                                    case 0:
+                                        <text>Низкий</text>
+                                        break;
+                                    case 1:
+                                        <text>Нормальный</text>
+                                        break;
+                                    case 2:
+                                        <text>Высокий</text>
+                                        break;
+                                    case 3:
+                                        <text>Неотложенный</text>
+                                        break;
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
 </html>
