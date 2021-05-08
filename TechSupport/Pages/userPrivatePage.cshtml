@@ -15,31 +15,75 @@
 
         </div>
         <div class="menu">
-            <a class="btn-buttonLogOut" href="/View/Index">Выйти</a>
+            <a class="btn-buttonLogOut" href="/View/Index">Log Out</a>
         </div>
     </header>
     <div class="content">
-        <div class="list">
-            <table cellspacing="0" , width="500px"  bgcolor=white>
-                <tr bgcolor="#1E2734" style="margin-left: 10px; height: 75px;">
-                    <td width="40%">
-                        <p style="color: white; margin-left: 10px;">Список задач</p>
+        <div class="tasksList">
+            <table>
+                <tr style="background-color: #1E2734">
+                    <td>
+                        <h3>Tasks List</h3>
                     </td>
                     <td>
-                        <button class="btn-buttonAddTask" type="button" style="height: 45px;">Добавить задачу</button>
+                        <h3>Status</h3>
+                    </td>
+                    <td>
+                        <h3>Priority</h3>
                     </td>
                 </tr>
                 @foreach (var item in Model)
                 {
-                    <tr style="margin-left: 10px; height: 75px;">
-                        <td colspan="3">
-                            <button class="btn-buttonOpenTask1" type="button"> @item.Name</button>
-
-                             В работе
-                            Приоритет неотложенный
-                        </td>
-                    </tr>
+                <tr style="margin-left: 10px; height: 75px;">
+                    <td>
+                        <a href="/Index/Index"> @item.Name</a>
+                    </td>
+                    <td>
+                        @{
+                            switch (item.Status)
+                            {
+                                case 0:
+                                    <text>Создана</text>
+                                    break;
+                                case 1:
+                                    <text>В работе</text>
+                                    break;
+                                case 2:
+                                    <text>Решена</text>
+                                    break;
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            switch (item.Priority)
+                            {
+                                case 0:
+                                    <text>Низкий</text>
+                                    break;
+                                case 1:
+                                    <text>Нормальный</text>
+                                    break;
+                                case 2:
+                                    <text>Высокий</text>
+                                    break;
+                                case 3:
+                                    <text>Неотложенный</text>
+                                    break;
+                            }
+                        }
+                    </td>
+                </tr>
                 }
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <a>Add Task</a>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>

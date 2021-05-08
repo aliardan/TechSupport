@@ -11,29 +11,22 @@
 </head>
 <body>
     <header class="header">
-        <div class="logo">
-
-        </div>
         <div class="menu">
             @if (User.Identity.IsAuthenticated)
             {
-                @if (User.IsInRole("admin"))
+                @if (User.IsInRole("Executor") || User.IsInRole("Admin"))
                 {
-                    <a class="btn-buttonLogin" href="/View/ExecutorPrivatePage">Личный кабинет</a>
+                    <a href="/Executor/ExecutorPrivatePage">Tasks To Do</a>
                 }
-                @if (User.IsInRole("executor"))
+                @if (User.IsInRole("User") || User.IsInRole("Admin"))
                 {
-                    <a class="btn-buttonLogin" href="/View/ExecutorPrivatePage">Личный кабинет</a>
-                }
-                @if (User.IsInRole("user"))
-                {
-                    <a class="btn-buttonLogin" href="/View/UserPrivatePage">Личный кабинет</a>
+                    <a href="/User/UserPrivatePage">Created Tasks</a>
                 }
             }
             else
             {
-                <a class="btn-buttonLogin" href="/View/LogIn">Войти</a>
-                <a class="btn-buttonRegistration" href="/View/Registration">Зарегистрироваться</a>
+                <a href="/Login/LogIn">Войти</a>
+                <a href="/Registration/Registration">Зарегистрироваться</a>
             }
         </div>
     </header>
