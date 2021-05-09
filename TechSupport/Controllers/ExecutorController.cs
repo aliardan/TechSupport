@@ -21,5 +21,13 @@ namespace TechSupport.Controllers
             var tasks = _commonContext.Tasks.ToList();
             return View("Pages/ExecutorPrivatePage.cshtml", tasks);
         }
+
+        [Authorize(Roles = "Executor, Admin")]
+        public IActionResult ExecutorPrivatePageForm()
+        {
+            var executor = HttpContext.User;
+            var tasks = _commonContext.Tasks.ToList();
+            return View("Pages/ExecutorPrivatePageForm.cshtml", tasks);
+        }
     }
 }
