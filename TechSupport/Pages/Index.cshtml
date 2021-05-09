@@ -16,12 +16,13 @@
             {
                 @if (User.IsInRole("Executor") || User.IsInRole("Admin"))
                 {
-                    <a href="/Executor/ExecutorPrivatePage">Tasks To Do</a>
+                    <a href="/Executor/ExecutorPrivatePage">Задачи</a>
                 }
                 @if (User.IsInRole("Customer") || User.IsInRole("Admin"))
                 {
-                    <a href="/User/UserPrivatePage">Created Tasks</a>
+                    <a href="/User/UserPrivatePage">Мои задачи</a>
                 }
+                <a href="/Index/Index">Выйти</a>
             }
             else
             {
@@ -30,10 +31,12 @@
             }
         </div>
     </header>
-    <div class="content">
-        <h1>
-            Есть вопросы? Напишите в нашу службу Тех поддержки!
-        </h1>
+<div class="content">
+    <div class="menu-text">
+        <p>Техническая поддержка<br /></p>
+        <h7>Любые ваши задачи<br /></h7>
+        <h8>В любое время</h8>
     </div>
+</div>
 </body>
 </html>
