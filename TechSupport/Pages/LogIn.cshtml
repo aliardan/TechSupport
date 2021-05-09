@@ -12,16 +12,18 @@
 <body>
     <header class="header">
         <div class="menu">
+            <a href="/Index/Index">Главное меню</a>
             @if (User.Identity.IsAuthenticated)
             {
                 @if (User.IsInRole("Executor") || User.IsInRole("Admin"))
                 {
-                    <a href="/Executor/ExecutorPrivatePage">Tasks To Do</a>
+                    <a href="/Executor/ExecutorPrivatePage">Задачи</a>
                 }
                 @if (User.IsInRole("Customer") || User.IsInRole("Admin"))
                 {
-                    <a href="/User/UserPrivatePage">Created Tasks</a>
+                    <a href="/User/UserPrivatePage">Мои задачи</a>
                 }
+                <a href="/Index/Index">Выйти</a>
             }
             else
             {
@@ -41,7 +43,7 @@
             <input type="password" name="Password">
         </div>
         <div class="group">
-            <center><button type="submit">Вход</button></center>
+                <center><button type="submit">Войти</button></center>
         </div>
     </form>
 </body>
