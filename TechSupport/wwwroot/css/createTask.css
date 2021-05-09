@@ -23,22 +23,6 @@ body{
 		width: 270px;
 		height: 59px;
 	}
-.LogOut{
-display: flex;
-justify-content: center;
-}
-.btn-buttonLogOut{
-    text-decoration: none;
-    color: white;
-    position: absolute;
-    width: 200px;
-    height: 50px;
-    left: 1830px;
-    top: 15px;
-    font-weight: 500;
-    font-size: 18px;
-    margin: 5px;
-}
 h1 {
 	cursor: help;
 	margin: 0 auto;
@@ -109,7 +93,7 @@ textarea{
 }
 div.menu {
     float: right;
-    padding: 10px;
+    padding: 15px;
 }
 
 div.menu a {
