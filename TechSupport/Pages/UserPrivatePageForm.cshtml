@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Support</title>
+    <link rel="stylesheet" type="text/css " href="~/css/PrivatePage.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="menu">
+            <a href="/Index/Index">Главное меню</a>
+            <a href="/User/UserPrivatePage">Назад</a>
+            <a href="/Index/Index">Выйти</a>
+        </div>
+    </header>
+    <div class="content">
+        <div class="tasksList">
+            <table>
+                @{
+                    var item = Model[0];
+                    <tr style="background-color: #1E2734">
+                        <td>
+                            <h3>Задача</h3>
+                        </td>
+                        <td>
+                            <h3>@item.Name</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Описание</h4>
+                        </td>
+                        <td>
+                            <h4>@item.Description</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Статус</h4>
+                        </td>
+                        <td>
+                            @{
+                                switch (item.Status)
+                                {
+                                    case 0:
+                                        <text><h4>
+                                                Создана
+                                            </h4></text>
+                                        break;
+                                    case 1:
+                                        <text><h4>
+                                                В работе
+                                            </h4></text>
+                                        break;
+                                    case 2:
+                                        <text><h4>
+                                                Решена
+                                            </h4></text>
+                                        break;
+                                }
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>id Исполнителя</h4>
+                        </td>
+                        <td>
+                            <h4>@item.ExecutorId</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Создана</h4>
+                        </td>
+                        <td>
+                            <h4>@item.CreatedDateTime</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Решена</h4>
+                        </td>
+                        <td>
+                            <h4>@item.ClosedDateTime</h4>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>
