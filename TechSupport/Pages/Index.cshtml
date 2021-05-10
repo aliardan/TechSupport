@@ -22,7 +22,11 @@
                 {
                     <a href="/User/UserPrivatePage">Мои задачи</a>
                 }
-                <a href="/Index/Index">Выйти</a>
+                <div class="logout">
+                    <form color="white" method="post" asp-controller="Login" asp-action="Logout">
+                        <input type="submit" value="Выход" />
+                    </form>
+                </div>
             }
             else
             {

@@ -13,7 +13,11 @@
     <header class="header">
         <div class="menu">
             <a href="/Index/Index">Главное меню</a>
-            <a href="/Index/Index">Выйти</a>
+            <div class="logout">
+                <form color="white" method="post" asp-controller="Login" asp-action="Logout">
+                    <input type="submit" value="Выход" />
+                </form>
+            </div>
         </div>
     </header>
     <div class="content">
@@ -34,7 +38,7 @@
                 {
                     <tr style="margin-left: 10px; height: 75px;">
                         <td>
-                            <a href="/User/UserPrivatePageForm"> @item.Name</a>
+                            <a href="/User/UserPrivatePageForm/@item.Id"> @item.Name</a>
                         </td>
                         <td>
                             @{
