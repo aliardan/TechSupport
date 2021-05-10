@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -49,13 +51,21 @@ namespace TechSupport.Controllers
                     ClaimTypes.Role);
 
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
-
+                HttpContext.User = new ClaimsPrincipal(identity);
                 return View("Pages/Index.cshtml");
             }
             else
             {
                 return View("Pages/LogIn.cshtml");
             }
+        }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync();
+            HttpContext.User = new ClaimsPrincipal(new GenericIdentity(string.Empty, string.Empty));
+            return View("Pages/Index.cshtml");
         }
     }
 }
