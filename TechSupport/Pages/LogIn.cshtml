@@ -14,7 +14,7 @@
         <div class="menu">
             <a href="/Index/Index">Главное меню</a>
             @if (User.Identity.IsAuthenticated)
-            {
+             {
                 @if (User.IsInRole("Executor") || User.IsInRole("Admin"))
                 {
                     <a href="/Executor/ExecutorPrivatePage">Задачи</a>
@@ -23,8 +23,7 @@
                 {
                     <a href="/User/UserPrivatePage">Мои задачи</a>
                 }
-                <a href="/Index/Index">Выйти</a>
-            }
+             }
             else
             {
                 <a href="/Login/LogIn">Войти</a>

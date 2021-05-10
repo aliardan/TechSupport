@@ -14,14 +14,18 @@
         <div class="menu">
             <a href="/Index/Index">Главное меню</a>
             <a href="/Executor/ExecutorPrivatePage">Назад</a>
-            <a href="/Index/Index">Выйти</a>
+            <div class="logout">
+                <form color="white" method="post" asp-controller="Login" asp-action="Logout">
+                    <input type="submit" value="Выход" />
+                </form>
+            </div>
         </div>
     </header>
     <div class="content">
         <div class="tasksList">
             <table>
                 @{
-                    var item = Model[0];
+                    var item = Model;
                     <tr style="background-color: #1E2734">
                         <td>
                             <h3>Задача</h3>
