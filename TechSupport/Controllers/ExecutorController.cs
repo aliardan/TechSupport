@@ -23,11 +23,10 @@ namespace TechSupport.Controllers
         }
 
         [Authorize(Roles = "Executor, Admin")]
-        public IActionResult ExecutorPrivatePageForm()
+        public IActionResult ExecutorPrivatePageForm(int id)
         {
-            var executor = HttpContext.User;
-            var tasks = _commonContext.Tasks.ToList();
-            return View("Pages/ExecutorPrivatePageForm.cshtml", tasks);
+            var task = _commonContext.Tasks.Where(x => x.Id == id).First();
+            return View("Pages/ExecutorPrivatePageForm.cshtml", task);
         }
     }
 }
