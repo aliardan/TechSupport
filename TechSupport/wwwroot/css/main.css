@@ -63,3 +63,13 @@ div.menu-text {
         div.menu-text h8 {
             margin-left: 180px;
         }
+div.logout input {
+    position: absolute;
+    top: 15px;
+    left: 275px;
+    color: white;
+    background: black;
+    font-size: 23px;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
