@@ -60,7 +60,7 @@ namespace TechSupport.Controllers
                 ClaimTypes.Role);
 
             HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
-
+            HttpContext.User = new ClaimsPrincipal(identity);
             return View("Pages/Index.cshtml");
         }
     }

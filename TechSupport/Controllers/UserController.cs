@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -23,19 +24,19 @@ namespace TechSupport.Controllers
         [Authorize(Roles = "Customer, Admin")]
         public IActionResult UserPrivatePage()
         {
-            var user = HttpContext.User;
             var tasks = _commonContext.Tasks.ToList();
             return View("Pages/UserPrivatePage.cshtml", tasks);
         }
 
         [Authorize(Roles = "Customer, Admin")]
-        public IActionResult UserPrivatePageForm()
+        [HttpGet()]
+        public IActionResult UserPrivatePageForm(int id)
         {
-            var user = HttpContext.User;
-            var tasks = _commonContext.Tasks.ToList();
-            return View("Pages/UserPrivatePageForm.cshtml", tasks);
+            var task = _commonContext.Tasks.Where(x => x.Id == id).First();
+            return View("Pages/UserPrivatePageForm.cshtml", task);
         }
 
+        [Authorize(Roles = "Customer, Admin")]
         public IActionResult CreateTask()
         {
             return View("Pages/CreateTask.cshtml");
@@ -45,6 +46,8 @@ namespace TechSupport.Controllers
         [HttpPost]
         public IActionResult CreateTask(CreateTaskData createTaskData)
         {
+            Random i = new Random();
+
             var existingTask = _commonContext
                 .Tasks
                 .FirstOrDefault(x => x.Name == createTaskData.Name);
@@ -54,10 +57,21 @@ namespace TechSupport.Controllers
                 return View("Pages/CreateTask.cshtml");
             }
 
+            var executorIds = _commonContext.Users.Where(x => x.Role.Name == "Executor").Select(x=>x.Id).ToList();
+            var executorIndex = i.Next(executorIds.Count - 1);
+            var executorId = executorIds[executorIndex];
+
             var newTask = new Task
             {
                 Name = createTaskData.Name,
-                Description = createTaskData.Description
+                Id = createTaskData.Id,
+                Description = createTaskData.Description,
+                CreatorId = createTaskData.CreatorId,
+                ExecutorId = executorId,
+                Status = i.Next(2),
+                Priority = i.Next(3),
+                CreatedDateTime = DateTime.Now,
+                ClosedDateTime = DateTime.Now.AddDays(i.Next(1, 5))
             };
             _commonContext.Tasks.Add(newTask);
             _commonContext.SaveChanges();
